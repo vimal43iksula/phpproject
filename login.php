@@ -7,6 +7,7 @@ session_start();
 	</head>
 <body>
 	<form method="post" action="">
+    <a href="first_page.php">Home Page</a><br><br>
 		Username: <input type="text" name="user"><br><br>
 		Password: <input type="password" name="pass"><br><br>
 		<input type="submit" name="submit" value="login">
