@@ -1,9 +1,7 @@
-<input type="text"><br><br>
-<button>Search</button>
-<p></p>
-<script type="text/javascript">
+
+
     $(document).ready(function(){
-        $("button").click(function(){
+        $(".search").click(function(){
 
             $.ajax({
                 type: 'POST',
@@ -16,9 +14,4 @@
             });
    });
 });
-</script>
 
-
-<?php 
-        ;
- ?>
