@@ -29,7 +29,7 @@
    $email = isset($_POST['email']) ? $_POST['email'] : "";
    	$newemail = filter_var($email, FILTER_SANITIZE_EMAIL);
 if (!filter_var($newemail, FILTER_VALIDATE_EMAIL) === false) {
-    echo("$newemail is a valid email address");
+    /*echo("$newemail is a valid email address");*/
     echo "<br>";
 } else {
     echo("$newemail is not a valid email address");
@@ -39,18 +39,32 @@ if (!filter_var($newemail, FILTER_VALIDATE_EMAIL) === false) {
 
    $password = isset($_POST['pass']) ? $_POST['pass'] : "";
    $mobile = isset($_POST['mobile']) ? $_POST['mobile'] : "";
+   if (filter_var($mobile, FILTER_VALIDATE_INT)) {
+   /* echo("$mobile is an integer");*/
+} else {
+    echo("$mobile is not an integer");
+}	
    $address = isset($_POST['add']) ? $_POST['add'] : "";
    $pin = isset($_POST['pin']) ? $_POST['pin'] : "";
-
-        
+     
    $sql = "INSERT INTO user(cname,email,password,mobile,address,pin)
 VALUES('$usrname','$newemail','$password','$mobile','$address','$pin')";
 
+
+
 if(mysqli_query($conn, $sql)) {
-    
+    	
+    	$sql1 = "INSERT INTO detail (cname,password)
+VALUES ('$usrname', '$password')";
+
+		if(mysqli_query($conn, $sql1)) {
+   			/*header('location:login.php');*/
 } else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    echo "Error: " . $sql1 . "<br>" . mysqli_error($conn);
 }
+} /*else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}*/
 }
 
 
