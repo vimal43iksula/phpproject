@@ -23,7 +23,7 @@ session_start();
 $_SESSION['login_user']= $user;  // Initializing Session with value of PHP Variable
 echo $_SESSION['login_user'];
     $password = $_POST['pass'];
-  $sql = "SELECT * FROM user WHERE cname='$user' AND password='$password'";
+  $sql = "SELECT * FROM user11 WHERE cname='$user' AND password='$password'";
   $result = mysqli_query($conn, $sql);
 
   if ($row = mysqli_fetch_assoc($result)) {

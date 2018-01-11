@@ -1,17 +1,25 @@
 
-
-    $(document).ready(function(){
-        $(".search").click(function(){
-
-            $.ajax({
-                type: 'POST',
-                url: 'view.php',
-                success: function(data) {
-                    alert(data);
-                    $("p").text(data);
-
-                }
-            });
-   });
-});
-
+$(document).ready(function() {
+    
+  $('#search').click(function() {
+      //alert('hii');exit;
+    var keywords = $('#keyword').val();
+   
+      
+      if(keywords != "") {
+       
+      $.ajax({
+        url: "view.php",
+       data: {keywords : keywords},
+        type:"POST",
+        success: function(se) {
+            $(".resultDiv").html(se);          
+        }
+      });
+    }
+  });
+  });
+  
+  
+  
+ 
